@@ -1,4 +1,5 @@
 import './App.css'
+import { AddNewUser } from './components/AddNewUser'
 import { UsersList } from './components/UsersList'
 
 
@@ -12,6 +13,7 @@ function App() {
       <div>
       
         <UsersList/>
+        <AddNewUser/>
 
       </div>
    </div>

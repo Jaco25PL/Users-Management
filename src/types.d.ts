@@ -1,6 +1,12 @@
 export interface Users {
-    readonly id: number
-    img: string
+    // readonly id: string
+    github: string
     name: string
     mail: string
+}
+
+export type UserId = string
+
+export interface UserWithId extends Users { 
+    id: UserId
 }
