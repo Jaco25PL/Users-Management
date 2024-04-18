@@ -1,7 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import {  UserId, UserWithId } from "../../types"
 
-
 const defaultUsers =  [
     {id: '1', github: 'Jaco25PL', name: 'Joaquin Piedra', mail: 'jhondoe@gmail.com'},
     {id: '2', github: 'barc', name: 'Jhon Doe', mail: 'jhondoe@gmail.com'},
@@ -23,7 +22,10 @@ export const usersSlice = createSlice({
             return state.filter((user) => user.id !== id)
         },
         addNewUser: (state, action: PayloadAction<UserWithId>) => {
+            //const id = crypto.randomUUID()
+            //state.push({id, ...action.payload})
             state.push(action.payload)
+            //or use immer -> state.push(action.payload)
         },
         updateUser: (state, action: PayloadAction<UserWithId>) => {
             const { id, name, mail, github } = action.payload
@@ -34,10 +36,6 @@ export const usersSlice = createSlice({
                 update.github = github
             }
         }
-        // addNewUser: (state, action: PayloadAction<Users>) => {
-        //     const id = crypto.randomUUID()
-        //     state.push({id, ...action.payload})
-        // }
     }
 })
 

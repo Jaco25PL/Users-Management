@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useAppDispatch ,useAppSelector } from "../hooks/useStore"
 import { updateUser } from "../store/users/slice"
-import { Link, useParams, useNavigate } from "react-router-dom"
-// import { UserId } from "../types"
+import { useParams, useNavigate } from "react-router-dom"
+import { FormButton } from "./FormButton"
 
 type ErrorState =  boolean | null
 
@@ -13,16 +13,16 @@ export function Update () {
     const [ error , setError] = useState<ErrorState>(null)
     const [addtButtonColor, setAddtButtonColor] = useState<string>('bg-violet-900 text-gray-50')
 
-    const { id } = useParams()
+    const { id } = useParams() // Get what comes as the param we defeined when the user click edit
     const users = useAppSelector(state => state.users)
     const dispatch = useAppDispatch()
 
-    const userExist = users.filter(user => user.id === id)
-    const { name, mail, github } = userExist[0]
+    const userExist = users.filter(user => user.id === id) // Take the user with the same ID as the useParams
+    const { name, mail, github } = userExist[0] // Take the first (the only one)
 
-    const [ newName, setNewName ] = useState(name)
-    const [ newMail, setNewMail ] = useState(mail)
-    const [ newGithub, setNewGithub ] = useState(github)
+    const [ newName, setNewName ] = useState<string>(name) // States to update the fields
+    const [ newMail, setNewMail ] = useState<string>(mail)
+    const [ newGithub, setNewGithub ] = useState<string>(github)
 
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -38,7 +38,7 @@ export function Update () {
         id && dispatch(updateUser({
             id: id,
             name: newName,
-            mail: newMail,
+            mail: newMail.toLocaleLowerCase(),
             github: newGithub,
         }))
         setError(false)
@@ -57,24 +57,7 @@ export function Update () {
                     <input value={newMail}   onChange={e => setNewMail(e.target.value)} type="text" placeholder="Email" name="email" />
                     <input value={newGithub} onChange={e => setNewGithub(e.target.value)} type="text" placeholder="Github Name" name="github" />
 
-                    <div className="flex justify-between">
-                        <div className="flex items-center gap-3 ">
-                            <button 
-                            type="submit" 
-                            className={`${addtButtonColor}parent group text-violet-400 text-start w-fit ease-out font-semibold px-5 py-2 rounded-lg`}
-                            >
-                                <span className="child group-hover:text-white transition-colors duration-300">Update</span>
-                            </button>
-                            { 
-                                error && <span className="text-red-400">Please fill al the fields</span>
-                            }
-                        </div>
-
-                        <Link 
-                        to={'/'} 
-                        className={`bg-zinc-700 hover:bg-violet-900 transition-colors duration-300 text-start w-fit ease-out font-semibold px-5 py-2 rounded-lg`}
-                        >Back</Link>
-                    </div>
+                    <FormButton addtButtonColor={addtButtonColor} error={error} label={'Update'} />
 
                 </form>
             </div>
