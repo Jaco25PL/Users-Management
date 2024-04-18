@@ -1,6 +1,8 @@
 import { useAppSelector , useAppDispatch } from "../hooks/useStore"
 import { deleteUser } from "../store/users/slice"
 import { UserId } from "../types"
+import { Link } from 'react-router-dom'
+
 
 export function UsersList () {
 
@@ -12,7 +14,8 @@ export function UsersList () {
     }
 
     return(
-        <div className="w-[900px] relative overflow-x-auto border-solid border-2 border-gray-400 py-5 px-7 rounded-lg">
+        <div>
+            <div className="w-[900px] relative overflow-x-auto border-solid border-2 border-gray-400 py-5 px-7 rounded-lg">
             
             <div className='flex items-center pl-6 mb-5  '>
                 <span className='text-base font-semibold mr-3'>Users</span>
@@ -39,7 +42,7 @@ export function UsersList () {
                 <tbody>
                     {
                         users?.map(user => (
-                            <tr  key={user.id} className={`${user.id === users.length.toLocaleString() ? 'border-none' : 'border-solid'} border-gray-500 border-b-2 px-6 py-4 font-medium  whitespace-nowrap`}>
+                            <tr  key={user.id} className={`${user.id === users.length ? 'border-none' : 'border-solid'} border-gray-500 border-b-2 px-6 py-4 font-medium  whitespace-nowrap`}>
 
                                 <th scope="row" className="px-6 py-4 font-bold  whitespace-nowrap">{user.id}</th>
                                
@@ -61,16 +64,16 @@ export function UsersList () {
                                         </svg>
                                     </button>
 
-                                    <button 
+                                    <Link
+                                    to={`/edit/${user.id}`} 
                                     type='button'
                                     aria-label="edit"
-                                    
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 hover:text-green-300 transition-colors duration-300 ">
                                           <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                         </svg>
   
-                                    </button>
+                                    </Link>
                                 </th>
 
                             </tr>
@@ -78,6 +81,16 @@ export function UsersList () {
                     }
                 </tbody>
             </table>
+
+
+            </div>
+            
+            <div className="mt-5">
+                <Link
+                to='/create'
+                className="hover:bg-green-300 hover:text-green-700 bg-violet-900 transition-colors duration-300 font-semibold px-3 py-2 rounded-lg"
+                >Create New User</Link>
+            </div>
         </div>
     )
 }
