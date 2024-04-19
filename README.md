@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+# User Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+User Management is a simple CRUD application built with React.js, Redux Toolkit, Tailwind CSS, and TypeScript. It provides basic functionality to manage a list of users, allowing users to be created, edited, and deleted. Instead of using a traditional database, the application utilizes local storage to store user data.
 
-Currently, two official plugins are available:
+![home](public/List-View.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Create new users with specified details.
+- View a list of all users in a table format.
+- Edit existing user information.
+- Delete users from the list.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies Used
 
-- Configure the top-level `parserOptions` property like this:
+- **Vite:** 
+- **React:**
+- **TypeScript:**
+- **Redux Toolkit:**
+- **Tailwind CSS:**
+  
+## Getting Started
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+To run this project locally, follow these steps:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Install dependencies using `pnpm install`
+4. Start the development server using `pnpm run`
+5. Open your web browser and visit `http://localhost:3000` to view the application.
+
+## Usage
+
+Once the application is running, you can perform the following actions:
+
+- **Create User:** Click on the **"Add"** button and fill in the required information in the form.
+- **View Users:** All created users will be displayed in a table format on the main page.
+- **Edit User:** Click on the **"Edit Icon"** button next to a user's entry in the table to modify their information.
+- **Delete User:** Click on the **"Delete Icon"** button next to a user's entry in the table to remove them from the list.
+
+## Contributions
+
+Contributions to this project are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
