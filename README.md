@@ -43,7 +43,7 @@ Once the application is running, you can perform the following actions:
 
 
 ## Edit User View
-![Edit-user](./public/Edit-View.png)
+![Edit-user](./public/Edit-User.png)
 
 
 ## Contributions
