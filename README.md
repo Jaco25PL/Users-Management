@@ -2,7 +2,7 @@
 
 User Management is a simple CRUD application built with React.js, Redux Toolkit, Tailwind CSS, and TypeScript. It provides basic functionality to manage a list of users, allowing users to be created, edited, and deleted. Instead of using a traditional database, the application utilizes local storage to store user data.
 
-![home](public/List-View.png)
+![home](./public/List-View.png)
 
 ## Features
 
@@ -37,6 +37,14 @@ Once the application is running, you can perform the following actions:
 - **View Users:** All created users will be displayed in a table format on the main page.
 - **Edit User:** Click on the **"Edit Icon"** button next to a user's entry in the table to modify their information.
 - **Delete User:** Click on the **"Delete Icon"** button next to a user's entry in the table to remove them from the list.
+
+## Edit Add View
+![Add-user](./public/Add-User.png)
+
+
+## Edit User View
+![Edit-user](./public/Edit-View.png)
+
 
 ## Contributions
 
