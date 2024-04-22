@@ -2,6 +2,8 @@
 
 User Management is a simple CRUD application built with React.js, Redux Toolkit, Tailwind CSS, and TypeScript. It provides basic functionality to manage a list of users, allowing users to be created, edited, and deleted. Instead of using a traditional database, the application utilizes local storage to store user data.
 
+## You can check the it by clicking the next link: [app](https://www.example.com](https://users-management-crud.vercel.app/)
+
 ![home](./public/List-View.png)
 
 ## Features
